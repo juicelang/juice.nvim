@@ -43,6 +43,7 @@
 "import" @keyword
 "loop" @keyword
 "for" @keyword
+"match" @keyword
 
 (type_identifier) @type
 (macro_identifier) @macro
