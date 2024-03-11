@@ -45,6 +45,7 @@
 "loop" @keyword
 "for" @keyword
 "match" @keyword
+"impl" @keyword
 
 (type_identifier) @type
 (macro_identifier) @macro
