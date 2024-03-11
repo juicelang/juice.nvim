@@ -41,6 +41,7 @@
 "fn" @keyword
 "type" @keyword
 "import" @keyword
+"export" @keyword
 "loop" @keyword
 "for" @keyword
 "match" @keyword
