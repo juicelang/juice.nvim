@@ -1,4 +1,4 @@
-(hash_bang_line) @label
+(hash_bang_line) @comment
 (ERROR) @error
 (bool_literal) @boolean
 (string_literal) @string
@@ -16,8 +16,6 @@
 "]" @punctuation.bracket
 "(" @punctuation.paren
 ")" @punctuation.paren
-
-(identifier) @label
 
 "=" @operator
 ":=" @operator
@@ -48,8 +46,6 @@
 
 (type_identifier) @type
 (macro_identifier) @macro
-
-(import_path) @label
 
 (function_declaration name: (identifier) @function)
 (("\"" @conceal) (#set! conceal ""))
