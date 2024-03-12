@@ -46,6 +46,8 @@
 "for" @keyword
 "match" @keyword
 "impl" @keyword
+"static" @keyword
+"foreign" @keyword
 
 (type_identifier) @type
 (macro_identifier) @macro
