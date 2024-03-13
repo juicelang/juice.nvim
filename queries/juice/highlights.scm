@@ -39,7 +39,6 @@
 "%" @operator
 
 "fn" @keyword
-"type" @keyword
 "import" @keyword
 "export" @keyword
 "loop" @keyword
@@ -48,6 +47,11 @@
 "impl" @keyword
 "static" @keyword
 "foreign" @keyword
+"return" @keyword
+"break" @keyword
+"continue" @keyword
+"if" @keyword
+"else" @keyword
 
 (type_identifier) @type
 (macro_identifier) @macro
