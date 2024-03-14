@@ -21,8 +21,8 @@
 (type_declaration name: (type_identifier) @type (type_constructors (type_constructor_shorthand)))
 ; (type_declaration name: (type_identifier) @local.definition.namespace (type_constructors (type_constructor)))
 
-(variable_declaration name: (identifier) @local.definition.var)
-(type_declaration name: (type_identifier) @local.definition.type)
+(variable_declaration name: (identifier) @variable @local.definition.var)
+(type_declaration name: (type_identifier) @type @local.definition.type)
 
 ((identifier) @constructor
   (#eq? @constructor "new"))
