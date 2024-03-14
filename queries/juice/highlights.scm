@@ -18,10 +18,9 @@
 ((comment) @comment.documentation
   (#lua-match? @comment.documentation "^///.*$"))
 
-(type_declaration name: (type_identifier) @local.definition.type (type_constructors (type_constructor_shorthand)))
-(type_declaration name: (type_identifier) @local.definition.namespace (type_constructors (type_constructor)))
+(type_declaration name: (type_identifier) @type (type_constructors (type_constructor_shorthand)))
+; (type_declaration name: (type_identifier) @local.definition.namespace (type_constructors (type_constructor)))
 
-(variable_declaration name: (identifier) @local.definition.var)
 (variable_declaration name: (identifier) @local.definition.var)
 (type_declaration name: (type_identifier) @local.definition.type)
 
@@ -126,7 +125,7 @@
 (import_as [ "as" ] @keyword.import)
 (import_as (identifier) @module)
 
-(identifier) @variable
+; (identifier) @variable
 
 (builtin_type) @type.builtin
 (type_identifier) @type
