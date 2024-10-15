@@ -21,8 +21,8 @@
 (type_declaration name: (type_identifier) @type (type_constructors (type_constructor_shorthand)))
 ; (type_declaration name: (type_identifier) @local.definition.namespace (type_constructors (type_constructor)))
 
-(variable_declaration name: (identifier) @variable @local.definition.var)
-(type_declaration name: (type_identifier) @type @local.definition.type)
+(variable_declaration name: (identifier) @variable @variable)
+(type_declaration name: (type_identifier) @type @type)
 
 ((identifier) @constructor
   (#eq? @constructor "new"))
@@ -48,15 +48,15 @@
 (function_declaration params: (function_parameters (function_parameter param_type: (type_expression)) ) @type)
 
 (function_call name: (identifier) @function)
-(function_call name: (macro_identifier) @macro)
+(macro_call name: (macro_identifier) @macro)
 
 [
-"{" 
-"}" 
-"[" 
-"]" 
-"(" 
-")" 
+"{"
+"}"
+"["
+"]"
+"("
+")"
 ] @punctuation.bracket
 
 [
@@ -80,7 +80,6 @@
 	"|"
 	"^"
 	"%"
-	"!"
 	"?"
 ] @operator
 
@@ -97,6 +96,7 @@
 	"static"
 	"foreign"
 	"break"
+	"type"
 ] @keyword
 
 [
@@ -130,6 +130,19 @@
 (builtin_type) @type.builtin
 (type_identifier) @type
 
-(macro_identifier) @macro
+(macro_identifier (identifier) @macro ["!"] @macro) @macro
+(macro_call_with_body
+	name: (macro_identifier (identifier) @injection.language)
+	body: (macro_body (macro_body_content) @injection.content)
+	(#set! injection.combined)
+	(#set! injection.include-children)
+)
+
+(macro_call
+	name: (macro_identifier (identifier) @injection.language)
+	body: (macro_body (macro_body_content) @injection.content)
+	(#set! injection.combined)
+	(#set! injection.include-children)
+)
 
 (("\"" @conceal) (#set! conceal ""))
